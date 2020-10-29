@@ -1,22 +1,56 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { createRef, useState } from "react";
+import { Link } from "gatsby";
+import { useFirebase, useCollection } from "../firebase";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const IndexPage = () => {
+  const [task, setTask] = useState("");
+  const [uploadText, setUpload] = useState("Upload");
+  const fileInput = createRef(null);
+  const { firebase } = useFirebase();
+  let { data } = useCollection("track");
+  const upload = async () => {
+    let storage = firebase.storage().ref()
+    const file = fileInput.current.files[0]
+    var thisRef = storage.child(file.name)
+    setUpload("Uploading")
+    await thisRef.put(file).then(snapshot => {
+      snapshot.ref.getDownloadURL().then(downloadURL => {
+        firebase.firestore().collection(`track`).add({
+          picture: downloadURL,
+          task: task,
+        })
+        alert("done");
+      })
+    })
+    setTask("")
+    setUpload("Upload")
+  }
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <input
+        type="text"
+        value={task}
+        onChange={event => setTask(event.target.value)}
+      />
+      <input type="file" ref={fileInput} />
+      <button onClick={upload}>{uploadText}</button>
+      {data.map(({ id, task, picture }) => {
+        return (
+          <div style={{ display: "flex", flexDirection: "row" }} key={id}>
+            <img src={picture} width="130px" height="150px" />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {task}
+              <button>
+                <Link to={`/track?task=${id}`}>Track</Link>
+              </button>
+              <button><Link to={`/result?task=${id}`}>Result</Link></button>
+            </div>
+          </div>
+        )
+      })}
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+  )
+}
 
 export default IndexPage
