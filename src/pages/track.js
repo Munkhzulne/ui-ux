@@ -1,17 +1,18 @@
-import React, { createRef, useEffect, useRef } from "react";
-import { useQueryParam, NumberParam, StringParam } from "use-query-params";
-import { useFirebase, useDoc } from "../firebase";
+import React, { createRef, useEffect, useRef } from "react"
+import { Link } from "gatsby"
+import { useQueryParam, NumberParam, StringParam } from "use-query-params"
+import { useFirebase, useDoc } from "../firebase"
 
 const Track = () => {
-  const [task, setTask] = useQueryParam("task", StringParam);
-  const { firebase } = useFirebase();
-  const {data } = useDoc(`track/${task}`);
-  const canvasRef = createRef(null);
+  const [task, setTask] = useQueryParam("task", StringParam)
+  const { firebase } = useFirebase()
+  const { data } = useDoc(`track/${task}`)
+  const canvasRef = createRef(null)
   useEffect(() => {
-    let canvas = canvasRef.current;
+    let canvas = canvasRef.current
     let context = canvas.getContext("2d")
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
     let img = document.createElement("img")
     img.src = data.picture
     img.onload = function () {
@@ -27,7 +28,14 @@ const Track = () => {
   }
 
   return (
-      <canvas onClick={track} ref={canvasRef}></canvas>
+    <>
+      <div>
+        <button>
+          <Link to="/"> back</Link>
+        </button>
+      </div>
+      <canvas ref={canvasRef}></canvas>
+    </>
   )
 }
 
