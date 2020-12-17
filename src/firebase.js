@@ -44,7 +44,6 @@ export const useDoc = (path) => {
           if (!firestore) {
               return;
           }
-
           let subscription = docData(firestore.doc(`${path}`), 'uid').subscribe((d) => {
               setData(d);
               setLoading(false);

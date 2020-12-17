@@ -34,7 +34,7 @@ const Track = () => {
           <Link to="/"> back</Link>
         </button>
       </div>
-      <canvas ref={canvasRef}></canvas>
+      <canvas ref={canvasRef} onClick={track}></canvas>
     </>
   )
 }

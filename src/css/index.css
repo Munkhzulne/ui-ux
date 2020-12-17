@@ -1,150 +1,78 @@
-#file {
-  background-color: black;
-  width: 50vw;
+.landingPage {
+  background-color: #06052f;
+  background-image: url("../images/designer.png"), url("../images/color.png");
+  background-size: 55%, cover;
+  background-position: left bottom;
+  background-attachment: fixed;
+  z-index: 1;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: scroll;
+}
+.a {
+  background-image: url("../images/backshape.png");
+  background-size: cover;
+  width: 100%;
   height: 100%;
-  float: left;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  transition-duration: 1s;
 }
-#test {
-  background-color: #f56a47;
-  width: 50vw;
+.landing {
+  background-color: #06052f;
+  background-image:  url("../images/color.png");
+  background-size:  cover;
+  background-position: left bottom;
+  background-attachment: fixed;
+  z-index: 1;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: scroll;
+}
+.simplePage {
+  min-height: 100vh;
+  overflow: scroll;
+}
+.bg-w {
+  background: white;
+}
+.designHeader {
+  background-color: #06052f;
+  background-image: url("../images/logo2.svg");
+  background-size: contain;
+  background-position: center top 20px;
+  background-repeat: no-repeat;
+}
+.bg {
+  background: transparent;
+}
+.h100 {
   height: 100%;
-  margin-left: 50vw;
-  position: fixed;
-  transition-duration: 1s;
 }
-#left {
-  font-size: 48px;
-  z-index: 2;
-  color: black;
-  position: fixed;
-  margin-top: 45vh;
-  left: 1vw;
-  display: none;
+.w100 {
+  width: 100%;
 }
-#right {
-  font-size: 48px;
-  z-index: 2;
-  color: black;
-  position: fixed;
-  margin-top: 45vh;
-  right: 1vw;
-  display: none;
+.t-w {
+  color: white;
 }
-.btn {
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 45px;
-  margin: 0 0 2em;
-  max-width: 160px;
-  position: relative;
-  text-decoration: none;
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #4776e6 0%,
+    #8e54e9 51%,
+    #4776e6 100%
+  );
+}
+.btn-grad {
+  text-align: center;
   text-transform: uppercase;
-  width: 100%;
-}
-
-@media (min-width: 600px) {
-  margin: 0 1em 2em;
-}
-
-.btn-1 {
-  background: darken(red, 1.5%);
-  font-weight: 100;
-}
-.btn-1 svg {
-  height: 45px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.btn-1 rect {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2;
-  stroke-dasharray: 422, 0;
-  transition: all 0.35s linear;
-}
-
-.btn-1:hover {
-  background: rgba(red, 0);
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-.btn-1:hover rect {
-  stroke-width: 5;
-  stroke-dasharray: 15, 310;
-  stroke-dashoffset: 48;
-  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-}
-#upBtn,
-#testBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-#taskList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#upForm {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-h3, input {
-  color: #f56a47;
-}
-button {
   border: none;
-  outline: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
 }
-.aa {
-  padding: 10px 15px 10px 15px;
-  color: #f56a47;
-  background: transparent;
-  border: 3px solid #f56a47;
-  border-radius: 30px;
-  width: 150px;
-  transition: 0.3s;
-}
-.aa:hover {
-  color: black;
-  background: #f56a47;
-  border: 3px solid #f56a47;
-}
-.bb {
-  padding: 10px 15px 10px 15px;
-  color: black;
-  background: transparent;
-  border: 3px solid black;
-  border-radius: 30px;
-  width: 150px;
-  transition: 0.3s;
-}
-.bb:hover {
-  color: #f56a47;
-  background: black;
-  border: 3px solid black;
-}
-.input {
-  outline: none;
-  padding: 10px 15px 10px 15px;
-  color: #f56a47;
-  background: transparent;
-  border: 3px solid #f56a47;
-  border-radius: 30px;
-  width: 100%;
+
+.btn-grad:hover {
+  background-image: linear-gradient(to right, #4776e6 100%);
+  background-position: right center;
 }

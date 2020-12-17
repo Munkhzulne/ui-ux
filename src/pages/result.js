@@ -19,7 +19,7 @@ const Result = () => {
     context.shadowBlur = 30
     context.shadowColor = "#f5d142"
     points.map(({ x, y }) => {
-      context.fillRect(x, y, 8, 8)
+      context.fillRect(x, y-25, 8, 8)
     })
   }, [data, points])
   return (
