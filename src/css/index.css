@@ -33,7 +33,8 @@
 .bg-w {
   background: white;
 }
-.designHeader {
+.designHeader, .profile-header {
+  height: 300px;
   background-color: #06052f;
   background-image: url("../images/logo2.svg");
   background-size: contain;
@@ -75,4 +76,14 @@
 .btn-grad:hover {
   background-image: linear-gradient(to right, #4776e6 100%);
   background-position: right center;
+}
+
+.experience {
+  width: 100%;
+  height: 100%;
+  overflow: 'visible'
+}
+
+.t-center {
+  text-align: center;
 }

@@ -31,7 +31,7 @@ const Track = () => {
     <>
       <div>
         <button>
-          <Link to="/"> back</Link>
+          <Link to="/user">Exit from Track</Link>
         </button>
       </div>
       <canvas ref={canvasRef} onClick={track}></canvas>

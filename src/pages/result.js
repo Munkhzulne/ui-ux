@@ -26,7 +26,7 @@ const Result = () => {
     <>
       <div>
         <button>
-          <Link to="/"> back</Link>
+          <Link to="/user"> Exit from Result</Link>
         </button>
       </div>
       <canvas ref={canvasRef}></canvas>
